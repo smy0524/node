@@ -1,0 +1,235 @@
+1. Node.js란?
+  1) ~ 1995년 이전 : HTML + CSS --> 웹사이트 개발
+     ~ 1995년 이후 : HTML + CSS + JavaScript --> 웹사이트 개발
+  
+  2) JavaScript
+     - Netscape사에서 개발한 live script > Mocha > JavaScript 12월 발표
+  
+  3) 브라우저에서 지원하는 자바스크립트 엔진
+     - 사파리(Safari) : JavaScript Core
+     - InternetExplorer(MS) : Chakara
+     - Firefox : Spider Monkey
+     - Chrome : V8 엔진(JIT Just-in-Time comilation)
+     - Edage(MS) : Chakara --> 2021년도에 V8 엔진을 탑재함
+  
+  4) 2009년 Ryan Dahl(라이언 달)이 Node.js를 발표
+     Deno : 자바스크립트 환경 개발자 - TypeScript 런타임 최초 개발자
+     -- JavaScript everwhere --
+  
+  5) Node.js는
+     '크롬의 V8엔진을 탑재하고 있는 자바크립트 런타임 환경이다'
+     'JavaScript code outside a web browser.'
+
+  6) Browser VS Node.js
+     Browser => 동적인 웹 애플리케이션 구현 가능
+                --------------------------------
+                Web API - windows, Document, Ajax, JSON...
+
+     Node.js => 서버와 서버간의 렌더링, 백엔드 서버 구현, 프론트 엔드 개발 등...
+                --------------------------------
+                Node API
+                IO (Input / Output)이벤트 기반 비동기 방식으로 처리되어 처리성능이 높음
+                채팅 등 크기가 작은 데이터를 빠르게 처리할 때 사용하기 좋음
+
+2. Node.js 를 어떻게 공부할 것인가?
+  1) Node의 구조를 정확히 이해하고 실행방식을 기억한다.
+  2) Node에서 제공하는 API를 잘 사용할 줄 알아야 한다.
+     API는 자바스크립트 문법으로 작성되었으므로, 문법을 정확히 익히도록 한다.
+  3) 개발을 편리하게 지원해주는 프레임워크에 대해서 익힌다.
+     Node.js --> Express, Rust
+     Web API(브라우저) --> React, Vue
+
+3. Node.js 특징 4가지
+  1) JavaScript Runtime
+    - V8 엔진 탑재 -> EcmaScript 6, Open Source, Node API...
+  2) Single Thread
+    - Process(Multi Thread) vs Thread
+  3) Non-Blocking(비동기적) IO(Input / Output)
+  4) Event - Driven
+
+4. 실행환경 만들기
+  1) Node.JS설치 : https://nodejs.org
+  2) 터미널 툴 설치
+    - 윈도우용 터미널 : https://cmder.app/
+    - 맥용 터미널 : https://iterm2.com/
+  3) 개발 툴 설치 : VSCode 등..
+  4) Git 설치 및 GitHub 연동
+
+
+5. REPL - 터미널 환경에서 실행
+  R : Read, E : Eval, P : Print, L : Loop
+
+  node - in
+  ctrl + c -> .exit - Out
+
+
+6. console 로그에 대한 API 검색 및 활용 - 2.console.js
+
+7. this 정리(global - function, object - class) - 3.this.js
+
+8. export/require - node, Blocking
+   export/inport - JavaScript, Non-blocking
+
+   node는 블로킹, js는 논블로킹이 때문에 node에서 js방식을 사용할 수 없으며, json파일을 만들고 type를 module로 수정해주어야함
+
+
+   node api에서 제공하는 class는 빌트인 객체로도 지원함.
+   class를 new로 객체로 만들지 않고도 첫글자 소문자로 써서 사용 가능.
+
+
+9. Node API
+1) os - 운영체제 정보
+2) Process
+3) Path
+4) FileSystem
+5) Stream & Buffer(디폴트 64. 별도로 수정 가능)
+
+싱글 스레드이므로 사이즈가 크고 시간이 오래 걸리는 작업은 문제가 발생할 수 있지만, IO가 반복되는 스트리밍, 채팅 서비스 등에는 사용이 가능하다.
+
+파일과 스트리밍 파일이 있고 얼마만큼 잘라서 쓰는 작업을 할 것인가
+
+
+
+
+
+10) NPM(Node Package Manager)
+ - js에서 외부 라이브러리를 사용하는 레파지토리
+ - npmjs.com
+ - 노드에서 외부 라이브러리 사용과 프로젝트 관리를 위함
+ - 오픈 소스로 제공되며, 천백만명의 개발자들이 사용하는 큰 커뮤니티로 백만개 이상의 라이브러리 존재
+ - NPX는 다운로드하여 저장하지 않고, 바로 실행
+ - yarn는 페이스북에서 라이브러리 커뮤니티로 npm에서 제기되는 문제점을 해결하고자 만듬. React에서 주로 사용되며 NPM과 호환이 됨.
+ - https://mvnrepository.com/
+ - 노드에서 사용되는 외부에서 만든 라이브러리를 공유하여 사용하기 위해 만든 레파지토리
+ - 프로퍼티를 실행할 때 npm ham(프로퍼티) 등록 된 프로퍼티가 아닌 임의로 제작하는 프로퍼티를 실행할 경우 npm run ham
+ - 버전명 읽는 법 - 1(메이저/획기적 변화, 내부 실행방식 등이 변경, 모듈이 새로운 것 처럼 바뀌는 등 매우 큰 변화가 있을 때).0(마이너/새로운 기능 추가).0(패치/오류수정)
+ - 버전 수정이 되면 릴리즈 노트를 참고.
+ - 버전 앞에 ^가 있으면 해당 버전 이상의 버전을 임의로 다운 받는다 ex) ^1.13.6
+ - 프로젝트에서 사용할 때 모듈 폴더를 GitHub에 올릴 경우 시간이 오래걸리므로 GitHub에 올리지 않고 json파일만 공유해 json안의 url과 버전을 참고하여 다운받아 사용한다.
+ - 설치한 모듈을 삭제하고 싶을 경우 직접 폴더를 삭제하지 않고 un 명령어로 삭제해준다.
+
+
+ - npm list 특정 경로에서 사용
+ - npm list -g(global) pc전체에서 사용
+ - npm i(install 약자) -h // -h는 사용법을 보여준다.
+ - npm i -g nodemon
+ - npm i underscore
+ - npm un(uninstall 약자) (삭제할 모듈 이름) 모듈 삭제
+
+ nodemon (파일 이름) - 현재 실행되어있는 특정 파일을 계속 트래킹해서 보여준다. 저장함과 동시에 node화면에서 확인할 수 있다. node 명령어를 입력해 확인하지 않아도 변화를 확인할 수 있음. 종료는 ctrl + c
+ node 창의 크기를 움직이면 멈추므로 주의
+
+
+
+ 11) HTTP/HTTPS
+ - MDN사이트 참고
+ - 네트워크 쪽 알아두기
+
+ 1) HTTP/HTTPS
+   - Hypertext(링크를 포함하고 있는 문자) Treansfer Protocol
+      (request - response protocal)
+      전송규칙을 나타내준다.
+
+   <HTTP>
+                     request(URL: http://www.navaer.com/index.do)(do등은 사용하는 환경을 감추기 위해 라이브러리에서 변경 가능)
+      client -----------------------> server
+   브라우저 <-----------------------
+                  response(HTML)
+                        |
+            데이터를 가로채는 경우 다수
+   
+   
+   <HTTPS> Hypertext Treansfer Protocol Secure
+
+                     request(URL: https://www.navaer.com/index.do)
+      client -----------------------> server
+   브라우저 <-----------------------
+                  response(HTML)
+                  : SSL, TSL등 공개키를 사용한 암호화되어 전송response(HTML)
+                  : SSL, TSL등 공개키를 사용한 암호화되어 전송
+                        |
+            데이터를 가로채는 경우 감소
+
+   DNS - 도메인 서버. IP를 주소 형태로 변경해준다.
+
+ 2) Status Codes
+   MDN : https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+   - 서버가 클라이언트가 요청한 처리상태를 숫자(3자리 숫자, 5개 범위)로 전송하는 코드
+
+   1xx : Informational
+      100(continue) - 요청이 정상적이며, 계속 진행 가능
+      102(Processing) - 요청한 것을 아직 처리중
+
+   2xx : Successful
+      200(OK) - 성공메세지
+      201(Created) - 클라이언트가 요청한 리소스 생성이 성공함
+      204(No Content) - 클라이언트 요청 처리 완료 전송할 컨텐츠는 없음
+
+   3xx : Redirection
+      301(Moved Permanently) - 요청한 페이지가 영구적으로 다른곳으로 이동
+      302(Found) - 요청한 페이지가 임시적으로 다른곳으로 이동
+      303(See Other) - 302와 동일한 의미 단 GET방식만 사용가능
+
+   4xx : Client error
+      400(Bad Request) - 요청한 쿼리가 잘못 된 경우
+       // 쿼리스트링은 GET
+      401(Unauthorized) - 로그인 등 권한이 없는 클라이언트가 요청한 경우
+      403(Forbidden) - 로그인한 사용자이지만 특정한 일을 행할 권한이 없음
+      404(Not Found) - URL이 존재하지 않을 때
+      405(Method Not Allowed) - 요청한 기능이 허용되지 않을 때
+      (데이터를 보낼 때 get, post 메소드를 잘못 보내 서버가 처리하지 못했을 때)
+
+   5xx : Server error
+      500(Internal Server Error) - 서버에서 요청을 처리할 수 없는 경우 전송
+      502(Bad Gateway) - 중간에 서버 요청을 어떻게 처리해야 할지 모르는 경우 전송
+      503(Service Unavailable) - URL에서 용청한 특정한 처리를 하기 위한 준비가 아직 안되었을때
+
+ 3) Request
+   - URL : Uniform Resource Location
+   
+   https://www.server.com:80/course/frontend/js/search?a=123
+   -----   ----------------- ------------------------- -----
+   protocal  hostname          pathname                 query(-string) / GET방식
+             (포트 80이 기본. 생략가능)
+   
+   
+   - Method : 요청하는 방식(GET/POST/PUT...)
+   
+   MDN - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+
+      GET - get : 서버에서 해당 리소스를 가져오고 싶을 때
+      POST - created : URL이 가리키는 곳에 무엇인가를 생성하고 싶을때, 전송하는 데이터의 용량이 큰 경우...
+      PUT - replace : URL에 있는 데이터를 업데이트 하고 싶을 때
+      DELETE - delete : URL에 있는 데이터를 삭제하고 싶을 때
+      PATCH - replace partially : 부분적으로 업데이트 하고 싶을 때
+      HEAD - get without body : 데이터를 받지는 않고 HEAD만 받고 싶을 때
+      OPTIONS - all supported methods for URL : 해당 URL에서 사용 가능한 모든 메소드 옵션을 알고 싶을 때
+      TRACE - echoes the raceived request : 요청에 대한 서버의 반응 상태를 확인할 때
+
+   [GET] - 200, 401, 403, 404, 405 ...
+   [POST] - 201, 401, 403, 404, 409 ...
+   [PUT/DELETE/PATCH] - 200, 204, 404, 405 ...
+   [HEAD/OPTIONS/TRACE] - 200, 401, 403, 404, 405 ...
+
+   * GET/HEAD/OPTIONS/TRACE 메소드는 서버의 데이터를 요청해서 읽기만 진행하고, 데이터의 변경을 요청하는 메소드가 아님.
+   * POST/PUT/DELETE/PATCH 데이터의 변경을 요청하는 메소드
+
+ 
+ 4) HTTP Headers
+   - Stateless Protocol : HTTP는 상태정보를 저장하지 않는 프로토콜이므로 서버에 대한 인증을 필요시 얻어야함
+   - Cookies & Session
+
+
+                  request(get) http://www.navaer.com/login
+      client -----------------------------------------------> Server
+            <-----------------------------------------------
+                        response 로그인 화면(HTML)
+
+                  request(post) : 로그인 요청 (id, pass)
+      client -----------------------------------------------> Server + DB
+            <------------------------------------ 로그인 성공 : Session(keyO) / http header에 붙여서 보낸다
+            URL + Session(key0) ---------------------------->
+            로그아웃 할 때 까지 세션에 저장 된 값을 비교해서 페이지가 넘어가도 로그인 상태를 유지해준다.
+
+Cookies(Session(keyO))
+|------->브라우저

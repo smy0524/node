@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node Server Test</title>
+</head>
+<body>
+  <h1>Courses</h1>
+  <ul>
+  <% courses.forEach(course => {%><!-- <% %> 제어문 등을 넣어준다 -->
+    <li><%= course.name %></li><!-- <%= %> 데이터 등을 넣어준다 -->
+  <% })%>
+  </ul>
+  <!-- js node를 이용해 서버를 사용하므로 js문법을 사용 -->
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node Server Test</title>
+</head>
+<body>
+  <h1>scoreList</h1>
+  <table>
+    <tr>
+      <td>번호</td>
+      <td>과목명</td>
+      <td>등급</td>
+    </tr>
+  <% let index = 1;
+  scoreList.forEach(score => {%>
+    <tr>
+      <td><%= index++ %></td>
+      <td><%= score.name %></td>
+      <td><%= score.gread %></td>
+    </tr>
+  <% })%>
+  </talbe>
+</body>
+</html>

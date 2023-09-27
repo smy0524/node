@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>node login</title>
+</head>
+<body>
+  <h1>Login Form</h1>
+  <form name="loginForm" action="/login" method="post"><!-- login은 보안이 필요하므로 post -->
+    <ul>
+      <li>
+        <label for="id">Id</label>
+        <input type="text" name="id" id="id">
+      </li>
+      <li>
+        <label for="pass">Password</label>
+        <input type="password" name="pass" id="pass">
+      </li>
+      <li>
+        <button type="submit">login</button>
+        <button type="reset">cancle</button>
+      </li>
+    </ul>
+  </form>
+</body>
+</html>
